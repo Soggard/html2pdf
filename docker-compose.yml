@@ -3,10 +3,12 @@ services:
   php-nginx:
     image: webdevops/php-nginx
     ports:
-     - "8081:80"
+      - "8081:80"
     volumes : 
-    - ./app:/app
-  mysql:
+      - ./app:/app
+    links : 
+      - db
+  db:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
     restart: always
