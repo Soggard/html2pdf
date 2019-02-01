@@ -59,13 +59,49 @@
 		<div class="main">
 			<img src="img/kawai.gif" style="width: 150px;margin: auto;">
 			<form action="" method="get">
-				Entrez une URL à convertir en PDF <br>
-				<input class="url" type="text" name="url">
-				<input class="convert" value="Convertir" type="submit">
+				Entrez une URL a convertir en PDF <br>
+				<input class="url" type="text" name="url" id="content" value="https://github.com/Soggard/html2pdf">
+				<input class="convert" value="Convertir" type="submit" id="cmd">
 			</form>
+			<div id="result">
+
+			</div>
 		</div>
 	</div>
 
 	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
+	<script>
+		
+	var doc = new jsPDF();
+	var specialElementHandlers = {
+		'#editor': function (element, renderer) {
+			return true;
+		}
+	};
+	$.ajaxPrefilter( function (options) {
+	if (options.crossDomain && jQuery.support.cors) {
+		var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
+		options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
+		//options.url = "http://cors.corsproxy.io/url=" + options.url;
+	}
+	});
+
+	$('#cmd').click(function (e) {  
+		e.preventDefault();
+		$.get($
+		('#content').val(), 
+		function (response) {
+			doc.fromHTML(response, 15, 15, {
+				'width': 170,
+					'elementHandlers': specialElementHandlers
+			});
+			doc.save('sample-file.pdf');
+		});
+	});
+
+	// This code is collected but useful, click below to jsfiddle link.
+
+	</script>
 </body>
 </html>
