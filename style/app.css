@@ -1,0 +1,48 @@
+
+*{
+    padding: 0;
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+
+body {
+    background-image: url('img/Licorne.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.main {
+    padding: 40px;
+    border-radius: 20px;
+    background-color: #ffe5e4;
+    color: purple;
+    max-width: 50%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.url {
+    height: 40px;
+    width: 260px;
+    color: magenta;
+}
+
+.convert {
+    height: 40px;
+    padding: 0 20px;
+    color: white;
+    background: lightgreen;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
