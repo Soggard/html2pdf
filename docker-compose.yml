@@ -15,4 +15,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
     links : 
-    - php-nginx 
+    - php-nginx
+  html2pdf:
+    image: protodype/html2pdf
+    ports:
+      - "8082:80" 
