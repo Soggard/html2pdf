@@ -2,55 +2,7 @@
 <html>
 <head>
 	<title>HTML to PDF</title>
-	<style type="text/css">
-		*{
-			padding: 0;
-			margin: 0;
-		}
-		html, body {
-			height: 100%;
-		}
-
-		body {
-			background-image: url('img/Licorne.jpg');
-			background-size: contain; 
-			background-position: center;
-			background-repeat: no-repeat;
-			font-family: sans-serif;
-		}
-		.container {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			height: 100%;
-		}
-
-		.main {
-			padding: 40px;
-			border-radius: 20px;
-			background-color: #ffe5e4;
-			color: purple;
-  			max-width: 50%;
-  			font-size: 20px;
-  			font-weight: bold;
-		}
-
-		.url {
-			height: 40px;
-			width: 260px;
-			color: magenta;
-		}
-
-		.convert {
-			height: 40px;
-			padding: 0 20px;
-			color: white;
-			background: lightgreen;
-			border: none;
-			text-transform: uppercase;
-			cursor: pointer;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="style/app.css">
 </head>
 
 <body>
@@ -59,34 +11,13 @@
 		<div class="main">
 			<img src="img/kawai.gif" style="width: 150px;margin: auto;">
 			<form action="" method="get">
-				Entrez une URL a convertir en PDF <br>
-				<input class="url" type="text" name="url" id="content">
-				<input class="convert" value="Convertir" type="submit" id="cmd">
+				Entrez une URL à convertir en PDF <br>
+				<input class="url" type="text" name="url">
+				<input class="convert" value="Convertir" type="submit">
 			</form>
 		</div>
 	</div>
 
-	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
-	<script>
-		
-	var doc = new jsPDF();
-	var specialElementHandlers = {
-		'#editor': function (element, renderer) {
-			return true;
-		}
-	};
-
-	$('#cmd').click(function () {   
-		doc.fromHTML($('#content').html(), 15, 15, {
-			'width': 170,
-				'elementHandlers': specialElementHandlers
-		});
-		doc.save('sample-file.pdf');
-	});
-
-	// This code is collected but useful, click below to jsfiddle link.
-
-	</script>
+	<script type="text/javascript" src="../jquery-3.2.1.min.js"></script>
 </body>
 </html>

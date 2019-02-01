@@ -8,7 +8,7 @@ html, body {
 }
 
 body {
-    background-image: url('img/Licorne.jpg');
+    background-image: url('/img/Licorne.jpg');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
